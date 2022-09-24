@@ -66,12 +66,12 @@ const Admin = ({ children }) => {
             <img src={LogoImage} />
           </div>
           <div className="header__item" style={styleNone}>
-            <div className="header__item-search">
+            {/* <div className="header__item-search">
               <button className="search__btn">
                 <SearchOutlined />
               </button>
               <input type="text" className="search__input" placeholder="Type to Search..." />
-            </div>
+            </div> */}
             <div className="header__item-bell">
               <BellOutlined />
             </div>

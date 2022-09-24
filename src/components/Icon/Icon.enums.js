@@ -5,6 +5,7 @@ export const EIconName = {
   Sider: 'Sider',
   Trash: 'Trash',
   Calendar: 'Calendar',
+  AngleDown: 'AngleDown',
 };
 
 export const EIconColor = {

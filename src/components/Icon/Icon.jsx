@@ -10,6 +10,7 @@ import Menu from './Menu';
 import SiderIcon from './Sider';
 import DeleteIcon from './DeleteIcon';
 import Calendar from './Calendar';
+import AngleDown from './AngleDown';
 
 const Icon = ({ name, className, color, onClick }) => {
   const renderIcon = () => {
@@ -26,6 +27,8 @@ const Icon = ({ name, className, color, onClick }) => {
         return <DeleteIcon />;
       case EIconName.Calendar:
         return <Calendar />;
+      case EIconName.AngleDown:
+        return <AngleDown />;
       default:
         return <></>;
     }

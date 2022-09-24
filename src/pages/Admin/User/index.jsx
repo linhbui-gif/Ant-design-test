@@ -7,6 +7,7 @@ import { ETypeStatus } from '@/utils/constants';
 import Icon, { EIconName } from '@/components/Icon';
 import ButtonComponent from '@/components/Button/Button';
 import InputComponent from '@/components/Input/Input';
+import SelectDropdownCustom from '@/components/SelectCustom/SelectCustom';
 
 const { Title } = Typography;
 const menu = (
@@ -22,11 +23,11 @@ const menu = (
 const dataOptions = [
   {
     id: 1,
-    name: ETypeStatus.ACTIVE,
+    name: ETypeStatus.INACTIVE,
   },
   {
     id: 2,
-    name: ETypeStatus.INACTIVE,
+    name: ETypeStatus.ACTIVE,
   },
 ];
 const columns = [
@@ -76,7 +77,7 @@ const columns = [
     key: 'status',
     dataIndex: 'status',
     title: 'Account Status',
-    render: (value, record) => <SelectOption arrayOption={dataOptions} />,
+    render: (value, record) => <SelectDropdownCustom data={dataOptions} />,
   },
   {
     key: 'action',
