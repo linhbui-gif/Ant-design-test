@@ -1,0 +1,96 @@
+@import '~antd/dist/antd.css';
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+@import "~animate.css/animate.min.css";
+@import './fonts';
+@import './colors';
+@import './constants';
+@import './mixins';
+
+* {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  scroll-behavior: smooth;
+  line-height: 1.4;
+}
+
+html {
+  font-size: 10px;
+
+  @media (max-width: 1440px) {
+    font-size: 8px;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 7px;
+  }
+}
+
+body {}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.col-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  max-width: 144rem;
+  width: 100%;
+  padding: 0 1.6rem;
+  margin: 0 auto;
+}

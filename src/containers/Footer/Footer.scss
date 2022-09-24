@@ -1,0 +1,89 @@
+@import '../../assets/styles/global';
+
+.Footer {
+  position: relative;
+  background: $daintree;
+  padding: 8rem 0;
+
+  &-bg {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &-wrapper {
+    position: relative;
+  }
+
+  &-logo {
+    margin: 0 auto 6rem;
+
+    span {
+      text-transform: uppercase;
+      color: $maroon-flush;
+      font-size: 9.6rem;
+    }
+
+    img {
+      width: 12rem;
+      margin-right: 4.2rem;
+    }
+  }
+
+  &-download {
+    max-width: 24.8rem;
+    margin: 0 auto 5.2rem;
+
+    .animate__animated {
+      &:not(:last-child) {
+        margin-bottom: 2.4rem;
+      }
+    }
+
+    &-btn {
+      border: 2px solid $white;
+      cursor: pointer;
+      border-radius: .6rem;
+      padding: 1rem 2rem;
+      transition: $common-transition;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &-icon {
+        flex: 0 0 3.2rem;
+        max-width: 3.2rem;
+        height: 3.2rem;
+        margin-right: 1rem;
+        @include centerScaleImage;
+      }
+
+      span {
+        flex: 1;
+        text-align: center;
+        color: $white;
+        line-height: 1;
+        font-size: 2.8rem;
+        text-shadow: 0px 2px 1px rgba($black, 0.3);
+      }
+    }
+  }
+
+  &-socials {
+    &-item {
+      width: 5rem;
+      height: 5rem;
+      @include centerScaleImage;
+      margin: 0 2rem;
+      cursor: pointer;
+      transition: $common-transition;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

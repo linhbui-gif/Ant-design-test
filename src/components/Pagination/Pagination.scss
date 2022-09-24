@@ -1,0 +1,65 @@
+@import '../../assets/styles/global';
+
+.Pagination {
+  .ant-pagination-disabled {
+    opacity: 0.6;
+  }
+
+  .ant-pagination-simple .ant-pagination-prev,
+  .ant-pagination-simple .ant-pagination-next {
+    min-width: auto;
+    height: auto;
+  }
+
+  .ant-pagination-prev {
+    margin-right: 0;
+  }
+
+  .ant-pagination-next {
+    margin-left: 0.5rem;
+  }
+
+  .ant-pagination-slash {
+    margin: 0 1rem 0 -1rem;
+  }
+
+
+  .ant-pagination-simple .ant-pagination-simple-pager {
+    height: auto;
+    color: $white;
+    font-size: 1.4rem;
+    transform: translateY(.2rem);
+
+    input {
+      font-size: 1.4rem;
+      border: none;
+      background: transparent;
+      pointer-events: none;
+      color: $white;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  &-prev,
+  &-next {
+    width: 3.2rem;
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $white;
+    border-radius: 0.8rem;
+    transition: $common-transition;
+
+    &:hover {
+      transform: translateY(.3rem);
+      box-shadow: 0 0 0 rgba($white, 0.1);
+    }
+
+    .Icon {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+}

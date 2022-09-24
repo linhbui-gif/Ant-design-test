@@ -1,0 +1,20 @@
+@import '../../assets/styles/global';
+
+.ButtonToTop {
+  position: fixed;
+  right: 10rem;
+  bottom: 5rem;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: .8rem;
+  border: 1px solid $white;
+
+  @media (max-width: 991px) {
+    right: 3rem;
+  }
+
+  .Icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}

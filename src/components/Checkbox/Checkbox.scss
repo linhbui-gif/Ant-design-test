@@ -1,0 +1,43 @@
+@import '../../assets/styles/global';
+
+.Checkbox {
+  .ant-checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &-label {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 0.3rem;
+    user-select: none;
+  }
+
+  .ant-checkbox {
+    top: 0;
+  }
+
+  .ant-checkbox-checked {
+    &::after {
+      border-radius: 0.8rem;
+    }
+
+    .ant-checkbox-inner {
+      background: transparent;
+      border: 1px solid $white;
+    }
+  }
+
+
+  .ant-checkbox-inner {
+    width: 3.2rem;
+    height: 3.2rem;
+    border: 1px solid $white;
+    background: transparent;
+    border-radius: 0.8rem;
+
+    &::after {
+      left: 33%;
+    }
+  }
+}

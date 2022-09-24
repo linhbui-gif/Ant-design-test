@@ -1,0 +1,43 @@
+.User-management{
+    &-head{
+        background-color: white;
+        padding: 1.6rem 2.4rem;
+    }
+    &-search{
+        margin-top: 4px;
+        background-color: white;
+        align-items: center;
+        padding: 1.6rem 2.4rem;
+        justify-content: space-between;
+        .ant-form-item{
+            margin-bottom: 0;
+        }
+        .ant-input{
+            min-width: 400px;
+        }
+    }
+    &-body{
+        background-color: white;
+        padding: 1.6rem 2.4rem;
+        margin-top: 2.4rem;
+        &-list{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &-table{
+            margin-top: 2rem;
+            .ant-table-column-title {
+                font-weight: 500;
+            }
+        }
+    }
+    .ant-pagination{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
+        .ant-pagination-item a{
+            padding: 6px;
+        }
+    }
+}

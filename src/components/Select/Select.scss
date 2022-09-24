@@ -1,0 +1,51 @@
+@import '../../assets/styles/global';
+
+.Select {
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: $white;
+    font-size: 1.8rem;
+  }
+
+  .ant-select-selection-item {
+    font-weight: 600;
+
+  }
+
+  .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border: none;
+    box-shadow: none;
+  }
+
+  .ant-select-arrow {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-top: -.9rem;
+
+    .Icon {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-wrapper {
+    background: rgba(201, 201, 201, 0.2);
+    border: 1px solid $scorpion;
+    backdrop-filter: blur(1rem);
+    border-radius: 1.2rem;
+
+    .ant-select-item-option-content {
+      font-weight: 500;
+      color: $white;
+      text-align: center;
+    }
+
+    .ant-select-item-option-active:not(.ant-select-item-option-disabled),
+    .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+      color: $white;
+      background: rgba(201, 201, 201, 0.5);
+    }
+  }
+}

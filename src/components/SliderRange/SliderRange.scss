@@ -1,0 +1,70 @@
+@import '../../assets/styles/global';
+
+.SliderRange {
+  &-inputs {
+    margin-bottom: 3.2rem;
+
+    &-dash {
+      color: $white;
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 0 1rem;
+    }
+
+    .ant-input-number {
+      background: transparent;
+      border-radius: 2.6rem;
+      border: 1px solid $white;
+      color: $white;
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-align: center;
+
+      .ant-input-number-input {
+        text-align: center;
+      }
+
+      .ant-input-number-handler-wrap {
+        display: none;
+      }
+    }
+  }
+
+  &-slider {
+    .ant-slider-handle {
+      width: 18px;
+      height: 18px;
+      margin-top: -8px;
+    }
+
+    .ant-slider-track,
+    .ant-slider-rail,
+    .ant-slider-step {
+      height: 2px;
+    }
+
+    .ant-slider .ant-slider-track {
+      background: $spring-green;
+    }
+
+    .ant-slider .ant-slider-handle {
+      background: $spring-green;
+    }
+
+    .ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+      border-color: $spring-green;
+    }
+
+    .ant-slider-rail {
+      background: $white;
+    }
+
+    .ant-slider .ant-slider-handle,
+    .ant-slider .ant-slider-handle:active,
+    .ant-slider .ant-slider-handle:focus,
+    .ant-slider .ant-slider-handle:hover {
+      border: 2px solid $spring-green;
+    }
+  }
+}

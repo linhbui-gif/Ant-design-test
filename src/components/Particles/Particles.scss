@@ -1,0 +1,9 @@
+@import '../../assets/styles/global';
+
+.Particles {
+  pointer-events: none;
+
+  canvas {
+    @include fullAbsolute;
+  }
+}

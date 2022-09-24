@@ -1,0 +1,92 @@
+@import '../../assets/styles/global';
+
+.Header {
+  background: $white;
+
+  &-wrapper {
+    min-height: 5.2rem;
+
+    @media (max-width: 991px) {
+      padding: 1.2rem 0;
+    }
+  }
+
+  &-logo {
+    font-size: 2.5rem;
+    color: $maroon-flush;
+
+    @media (max-width: 991px) {
+      font-size: 3.2rem;
+    }
+
+    img {
+      width: 3.6rem;
+      height: 3.6rem;
+      margin-right: 5px;
+
+      @media (max-width: 991px) {
+        width: 4.2rem;
+        height: 4.2rem;
+      }
+    }
+  }
+
+  &-flags {
+    width: 30rem;
+    margin-left: auto;
+    margin-right: 30px;
+
+    @media (max-width: 991px) {
+      margin-right: 42px;
+    }
+
+    @media (max-width: 575px) {
+      width: 15rem;
+    }
+
+    .slick-slide {
+      &>div {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &-item {
+      width: 3.6rem;
+      height: 3.6rem;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      @include centerScaleImage;
+
+      img {
+        border: 1px solid $white;
+        transition: $common-transition;
+        border-radius: 50%;
+      }
+
+      &:hover {
+        img {
+          border-color: $torch-red;
+        }
+      }
+    }
+  }
+
+  &-menu {
+    display: none;
+    width: 4rem;
+    height: 4rem;
+
+    @media (max-width: 991px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .Icon {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

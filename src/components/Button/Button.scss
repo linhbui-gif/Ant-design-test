@@ -1,0 +1,9 @@
+.Button{
+    .ant-btn{
+        display: flex;
+    }
+   
+    &-icon{
+        margin-right: 8px;
+    }
+}

@@ -1,0 +1,78 @@
+@import '../../assets/styles/global';
+
+.Navigation {
+  position: sticky;
+  top: 0;
+  background: $tangaroa;
+  z-index: 4;
+
+  &-overlay {
+    @include fullAbsolute;
+    position: fixed;
+    z-index: 3;
+    cursor: pointer;
+    display: none;
+    transition: $common-transition;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba($black, 0.4);
+
+    &.active {
+      opacity: 1;
+      pointer-events: unset;
+    }
+
+    @media (max-width: 991px) {
+      display: block;
+    }
+  }
+
+  @media (max-width: 991px) {
+    position: fixed;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    transition: $common-transition;
+    transform: translateX(100%);
+    z-index: 4;
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+
+  &-wrapper {
+    height: 6.4rem;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+      padding: 3.2rem 0;
+    }
+  }
+
+  &-item {
+    padding: .8rem 1.6rem;
+    border-radius: 2.4rem;
+    font-size: 2.5rem;
+    color: $white;
+    text-transform: uppercase;
+    margin: 0 2.8rem;
+    transition: $common-transition;
+
+    @media (max-width: 991px) {
+      font-size: 3.2rem;
+    }
+
+    &:not(.button):hover {
+      color: $torch-red;
+    }
+
+    &.button {
+      @include backgroundPrimaryGradient;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

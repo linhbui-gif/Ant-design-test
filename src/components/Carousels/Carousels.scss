@@ -1,0 +1,13 @@
+@import '../../assets/styles/global';
+
+.Carousels {
+  .slick-arrow {
+    width: 2.4rem;
+    height: 2.4rem;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
