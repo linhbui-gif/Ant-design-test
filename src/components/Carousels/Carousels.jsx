@@ -22,7 +22,7 @@ export const Carousels = ({
   function RenderPrevArrow({ className, onClick }) {
     return (
       <div className={classNames('Carousels-arrow prev', className)} onClick={onClick}>
-        <Icon name={EIconName.AngleLeft} color={EIconColor.AQUA_ISLAND} />
+        <Icon name={EIconName.ArrowLeft} color={EIconColor.DUSTY_GRAY} />
       </div>
     );
   }
@@ -30,7 +30,7 @@ export const Carousels = ({
   function RenderNextArrow({ className, onClick }) {
     return (
       <div className={classNames('Carousels-arrow next', className)} onClick={onClick}>
-        <Icon name={EIconName.AngleRight} color={EIconColor.AQUA_ISLAND} />
+        <Icon name={EIconName.ArrowRight} color={EIconColor.DUSTY_GRAY} />
       </div>
     );
   }

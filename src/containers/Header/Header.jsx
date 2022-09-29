@@ -1,52 +1,46 @@
 import React from 'react';
+import { Link } from '@reach/router';
+import { Col, Layout, Row } from 'antd';
+import { SearchOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 
 import Logo from '@/assets/images/logo.svg';
-import Carousels from '@/components/Carousels';
-import Icon, { EIconColor, EIconName } from '@/components/Icon';
+import { Paths } from '@/pages/routers';
+import ImageAvatar from '@/assets/images/image-avatar.png';
+import Avatar from '@/components/Avatar';
+import Button from '@/components/Button';
 
-import { dataCountryFlags } from './Header.data';
 import './Header.scss';
+import { EIconColor } from '@/components/Icon';
 
-const Header = ({ onClickMenu }) => {
+const { Header: AntdHeader } = Layout;
+
+const Header = ({}) => {
   return (
-    <div className="Header">
-      <div className="container">
-        <div className="Header-wrapper flex items-center justify-between">
-          <div className="Header-logo bebas-neue-font">
-            <img src={Logo} alt="" />
-            FIREFOXINU
-          </div>
-          <div className="Header-flags">
-            <Carousels
-              dots={false}
-              arrows
-              slidesToShow={6}
-              slidesToScroll={1}
-              infinite
-              autoplay={false}
-              responsive={[
-                {
-                  breakpoint: 575,
-                  settings: {
-                    slidesToShow: 3,
-                  },
-                },
-              ]}
-            >
-              {[...dataCountryFlags, ...dataCountryFlags].map((item) => (
-                <div key={item.key} className="Header-flags-item">
-                  <img src={item.flag} alt="" />
-                </div>
-              ))}
-            </Carousels>
-          </div>
+    <AntdHeader className="Header">
+      <div className="Header-wrapper flex items-center justify-between">
+        <Link to={Paths.Home} className="Header-logo flex items-center">
+          <img src={Logo} alt="" />
+          <span>Let's Metric</span>
+        </Link>
 
-          <div className="Header-menu" onClick={onClickMenu}>
-            <Icon name={EIconName.Menu} color={EIconColor.AZURE_RADIANCE} />
-          </div>
+        <div className="Header-actions">
+          <Row gutter={[24, 12]} align="middle">
+            <Col>
+              <Button icon={<SearchOutlined color={EIconColor.WHITE} />} type="text" />
+            </Col>
+            <Col>
+              <Button icon={<QuestionCircleOutlined color={EIconColor.WHITE} />} type="text" />
+            </Col>
+            <Col>
+              <div className="Header-account flex items-center">
+                <Avatar size={24} src={ImageAvatar} />
+                <span>William</span>
+              </div>
+            </Col>
+          </Row>
         </div>
       </div>
-    </div>
+    </AntdHeader>
   );
 };
 

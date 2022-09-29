@@ -1,0 +1,13 @@
+@import '@/assets/styles/_global.scss';
+
+.UsersFilter {
+  background: $white;
+  padding: 3.2rem 2.4rem;
+  margin-bottom: 1rem;
+
+  .ant-form {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+  }
+}

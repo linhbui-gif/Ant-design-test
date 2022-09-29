@@ -2,9 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { Input as AntdInput } from 'antd';
 
-// import './Input.scss';
+import './Input.scss';
 
-const InputComponent = ({ className, type, size, readOnly, placeholder, prefix, suffix, onChange, onEnter, value }) => {
+const Input = ({ className, type, size, readOnly, placeholder, prefix, suffix, onChange, onEnter, value }) => {
   const handleKeydown = (e) => {
     if (e.key === 'Enter' || e.keyCode === 13) {
       onEnter?.();
@@ -28,4 +28,4 @@ const InputComponent = ({ className, type, size, readOnly, placeholder, prefix, 
   );
 };
 
-export default InputComponent;
+export default Input;

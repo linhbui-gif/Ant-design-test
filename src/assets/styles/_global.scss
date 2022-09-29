@@ -8,25 +8,19 @@
 @import './mixins';
 
 * {
-  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   scroll-behavior: smooth;
   line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
 }
 
 html {
   font-size: 10px;
-
-  @media (max-width: 1440px) {
-    font-size: 8px;
-  }
-
-  @media (max-width: 1200px) {
-    font-size: 7px;
-  }
 }
 
-body {}
+body {
+  background: $athens-gray;
+}
 
 .flex {
   display: flex;
@@ -93,4 +87,8 @@ body {}
   width: 100%;
   padding: 0 1.6rem;
   margin: 0 auto;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

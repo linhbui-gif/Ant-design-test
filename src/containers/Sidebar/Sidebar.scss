@@ -1,0 +1,17 @@
+@import '@/assets/styles/_global.scss';
+
+.Sidebar {
+  box-shadow: 0px 2px 8px rgba($black, 0.15);
+
+  .ant-layout-sider-trigger {
+    display: none;
+  }
+
+  &-toggle {
+    transition: $common-transition;
+    padding: 1.2rem 1.6rem;
+    margin-top: 8.2rem;
+    cursor: pointer;
+    box-shadow: inset 0px 1px 0px $gallery;
+  }
+}

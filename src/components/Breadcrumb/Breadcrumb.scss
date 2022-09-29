@@ -1,0 +1,14 @@
+@import '@/assets/styles/_global.scss';
+
+.Breadcrumb {
+  background: $white;
+  padding: 2.2rem 2.4rem;
+
+  .ant-breadcrumb>span:last-child {
+    color: $dodger-blue;
+  }
+
+  &-title {
+    margin: 1.6rem 0 0 0 !important;
+  }
+}

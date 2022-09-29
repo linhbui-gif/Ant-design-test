@@ -7,12 +7,10 @@ import Icon from '@/components/Icon';
 
 import './Button.scss';
 
-const ButtonComponent = ({
+const Button = ({
   className,
   size,
-  iconName,
-  shadow = true,
-  iconColor,
+  shadow,
   type = 'primary',
   htmlType,
   title,
@@ -20,6 +18,7 @@ const ButtonComponent = ({
   reverse,
   link,
   disabled,
+  icon,
   loading,
   onClick,
 }) => {
@@ -27,26 +26,23 @@ const ButtonComponent = ({
     if (link) navigate(link);
     else onClick?.();
   };
+
   return (
-    <div className={classNames('Button', className, { shadow, 'only-icon': !title && iconName, reverse })}>
+    <div className={classNames('Button', className, { shadow, 'only-icon': !title && icon, reverse })}>
       <AntdButton
         size={size}
         type={type}
+        icon={icon}
         htmlType={htmlType}
         onClick={handleClickButton}
         danger={danger}
         disabled={disabled}
         loading={loading}
       >
-        {iconName && (
-          <div className="Button-icon">
-            <Icon name={iconName} color={iconColor} />
-          </div>
-        )}
-        <span className="Button-title button-label">{title}</span>
+        {title && <span className="Button-title">{title}</span>}
       </AntdButton>
     </div>
   );
 };
 
-export default ButtonComponent;
+export default Button;

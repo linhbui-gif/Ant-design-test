@@ -1,13 +1,25 @@
 @import '../../assets/styles/global';
 
 .Carousels {
-  .slick-arrow {
-    width: 2.4rem;
-    height: 2.4rem;
 
-    &::before,
-    &::after {
+  .slick-next,
+  .slick-prev {
+    &:hover {
+      .Icon {
+        svg path {
+          fill: $white;
+        }
+      }
+    }
+
+    &::before {
       display: none;
+    }
+
+    .Icon {
+      svg path {
+        transition: $common-transition;
+      }
     }
   }
 }
