@@ -2,7 +2,7 @@ import { getType } from 'deox';
 
 import { uiActions } from '@/redux/actions';
 import { showNotification } from '@/utils/functions';
-import { ETypeNotification } from '@/utils/constants';
+import { ETypeNotification } from '@/common/enums';
 
 const getErrorMatches = (actionType) => /(.*)_(REQUEST|FAILED)/.exec(actionType);
 

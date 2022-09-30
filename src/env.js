@@ -5,6 +5,7 @@ const env = {
   api: {
     baseUrl: {
       service: process.env.REACT_APP_SERVICE_BASE_URL ?? '',
+      app: process.env.REACT_APP_SERVICE_APP_BASE_URL ?? '',
     },
   },
   cookie: {

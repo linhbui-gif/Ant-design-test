@@ -1,43 +1,76 @@
 import React from 'react';
+import { PlusOutlined, DownloadOutlined } from '@ant-design/icons';
+import { Col, Row } from 'antd';
+import { useSelector } from 'react-redux';
+import moment from 'moment/moment';
+import { useDispatch } from 'react-redux';
 
 import Switch from '@/components/Switch';
 import { EIconColor } from '@/components/Icon';
 import Table from '@/components/Table';
 import Pagination from '@/components/Pagination';
 import Button from '@/components/Button';
+import { EGetUsersAction, EUpdateUserAction, updateUserAction } from '@/redux/actions';
+import { EEmpty } from '@/common/enums';
 
 import './UsersTable.scss';
 
-const UsersTable = () => {
+const UsersTable = ({ params, onReload, onPageChange, onTableChange }) => {
+  const dispatch = useDispatch();
+
+  const getUsersState = useSelector((state) => state.userReducer.getUsersResponse);
+  const getUsersLoading = useSelector((state) => state.loadingReducer[EGetUsersAction.GET_USERS]);
+  const updateUserLoading = useSelector((state) => state.loadingReducer[EUpdateUserAction.UPDATE_USER]);
+
+  const total = getUsersState?.meta?.pagination?.total;
+
+  const { page, limit } = params;
+
+  const handleChangeStatusUser = (checked, data) => {
+    const body = {
+      username: data?.username,
+      fullname: data?.fullname,
+      status: !checked,
+    };
+
+    dispatch(updateUserAction.request({ body }, handleUpdateUserSuccess));
+  };
+
+  const handleUpdateUserSuccess = () => {
+    onReload?.();
+  };
+
   const columns = [
     {
-      key: 'userName',
-      dataIndex: 'userName',
+      key: 'username',
+      dataIndex: 'username',
       title: 'User Name',
       sorter: true,
     },
     {
-      key: 'promoCode',
-      dataIndex: 'promoCode',
+      key: 'active_code',
+      dataIndex: 'active_code',
       title: 'Promo Code',
       sorter: true,
+      render: (value) => value || EEmpty.STRIKE_THROUGH,
     },
     {
-      key: 'createdDate',
-      dataIndex: 'createdDate',
+      key: 'created_at',
+      dataIndex: 'created_at',
       title: 'Created Date',
       sorter: true,
+      render: (value) => moment(value).fromNow(),
     },
     {
-      key: 'apps',
-      dataIndex: 'apps',
+      key: 'apps_count',
+      dataIndex: 'apps_count',
       title: 'Apps',
       sorter: true,
       render: (value) => <span style={{ color: EIconColor.DODGER_BLUE }}>{value}</span>,
     },
     {
-      key: 'keywords',
-      dataIndex: 'keywords',
+      key: 'keywords_count',
+      dataIndex: 'keywords_count',
       title: 'Keywords',
       sorter: true,
       render: (value) => <span style={{ color: EIconColor.DODGER_BLUE }}>{value}</span>,
@@ -47,6 +80,7 @@ const UsersTable = () => {
       dataIndex: 'plan',
       title: 'Plan',
       sorter: true,
+      render: (value) => <span className="text-capitalize">{value || EEmpty.STRIKE_THROUGH}</span>,
     },
     {
       key: 'statusList',
@@ -68,67 +102,58 @@ const UsersTable = () => {
       ),
     },
     {
-      key: 'status',
-      dataIndex: 'status',
+      key: 'inactive',
+      dataIndex: 'inactive',
       title: 'Status',
-      render: () => <Switch />,
+      render: (value, record) => {
+        return (
+          <Switch
+            value={!value}
+            onChange={(checked) => handleChangeStatusUser(checked, record)}
+            disabled={updateUserLoading}
+          />
+        );
+      },
     },
   ];
 
-  const dataSources = [
-    {
-      userName: 'John Brown',
-      promoCode: 'DISCOUNT',
-      createdDate: 'Just now',
-      apps: '60',
-      keywords: '70',
-      plan: 'Standard',
-      statusList: '',
-      status: false,
-    },
-    {
-      userName: 'John Brown',
-      promoCode: 'DISCOUNT',
-      createdDate: 'Just now',
-      apps: '60',
-      keywords: '70',
-      plan: 'Standard',
-      statusList: '',
-      status: false,
-    },
-    {
-      userName: 'John Brown',
-      promoCode: 'DISCOUNT',
-      createdDate: 'Just now',
-      apps: '60',
-      keywords: '70',
-      plan: 'Standard',
-      statusList: '',
-      status: false,
-    },
-    {
-      userName: 'John Brown',
-      promoCode: 'DISCOUNT',
-      createdDate: 'Just now',
-      apps: '60',
-      keywords: '70',
-      plan: 'Standard',
-      statusList: '',
-      status: false,
-    },
-  ];
+  const dataSources = getUsersState?.data?.map((item) => ({
+    ...item,
+  }));
 
   return (
     <div className="UsersTable">
+      <div className="UsersTable-header">
+        <Row gutter={[16, 16]} justify="space-between" align="middle">
+          <Col>
+            <Row gutter={[16, 16]}>
+              <Col>
+                <div className="UsersTable-header-title">Users Listing</div>
+              </Col>
+            </Row>
+          </Col>
+          <Col>
+            <Row gutter={[16, 16]}>
+              <Col>
+                <Button title="Add New" icon={<PlusOutlined />} type="primary" />
+              </Col>
+              <Col>
+                <Button shape="circle" icon={<DownloadOutlined />} type="default" />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </div>
       <div className="UsersTable-table">
-        <Table columns={columns} dataSources={dataSources} />
+        <Table columns={columns} dataSources={dataSources} loading={getUsersLoading} onChange={onTableChange} />
       </div>
       <div className="UsersTable-pagination flex justify-end">
         <Pagination
-          page={1}
-          pageSize={10}
-          total={500}
+          page={page}
+          pageSize={limit}
+          total={total}
           showTotal={(total) => <Button title={`${total} users`} type="defautl" />}
+          onChange={onPageChange}
         />
       </div>
     </div>

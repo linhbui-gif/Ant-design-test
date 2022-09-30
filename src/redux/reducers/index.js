@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
 
-import loading from './status/loading';
-import success from './status/success';
-import error from './status/error';
-import authState from './auth';
+import { loadingReducer, errorReducer, successReducer } from './status';
+import authReducer from './auth';
+import userReducer from './user';
 
 const rootReducer = combineReducers({
-  loading,
-  success,
-  error,
-  authState,
+  loadingReducer,
+  errorReducer,
+  successReducer,
+  authReducer,
+  userReducer,
 });
 
 export default rootReducer;

@@ -4,7 +4,7 @@ import { Table as AntdTable } from 'antd';
 
 import './Table.scss';
 
-const Table = ({ className, columns, dataSources, loading, rowKey = 'id', title }) => {
+const Table = ({ className, columns, dataSources, loading, rowKey = 'id', title, onChange }) => {
   return (
     <div className={classNames('Table', className)}>
       <div className="Table-body">
@@ -15,6 +15,7 @@ const Table = ({ className, columns, dataSources, loading, rowKey = 'id', title 
           loading={loading}
           rowKey={rowKey}
           title={title}
+          onChange={onChange}
         />
       </div>
     </div>

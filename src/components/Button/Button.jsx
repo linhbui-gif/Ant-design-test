@@ -16,6 +16,7 @@ const Button = ({
   title,
   danger,
   reverse,
+  shape,
   link,
   disabled,
   icon,
@@ -32,6 +33,7 @@ const Button = ({
       <AntdButton
         size={size}
         type={type}
+        shape={shape}
         icon={icon}
         htmlType={htmlType}
         onClick={handleClickButton}

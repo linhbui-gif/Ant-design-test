@@ -1,6 +1,6 @@
 import { notification } from 'antd';
 
-import { ETypeNotification, ERegex } from './constants';
+import { ETypeNotification, ERegex } from '@/common/enums';
 
 export const removeAccents = (str) => {
   let strConverted = str;
@@ -141,4 +141,12 @@ export const copyText = (text) => {
   el.select();
   document.execCommand('copy');
   document.body.removeChild(el);
+};
+
+export const renderSortByString = (field, direction) => {
+  if (!direction || !field) return undefined;
+  let newDirection = '';
+  if (direction === 'ascend') newDirection = '1';
+  if (direction === 'descend') newDirection = '0';
+  return `${field}:${newDirection}`;
 };

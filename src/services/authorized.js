@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { navigate } from '@reach/router';
 
+import { EResponseCode } from '@/common/enums';
 import { LayoutPaths } from '@/pages/routers';
-import { EResponseCode } from '@/utils/constants';
+
 import AuthHelpers from './auth-helpers';
 import AuthInstance from './api/auth';
 

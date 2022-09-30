@@ -5,12 +5,29 @@ import { UpOutlined, DownOutlined } from '@ant-design/icons';
 import Input from '@/components/Input';
 import Select from '@/components/Select';
 import Button from '@/components/Button';
+import DatePicker from '@/components/DatePicker';
+import moment from 'moment/moment';
 
+import { plansOptions, statusOptions } from './UsersFilter.data';
 import './UsersFilter.scss';
+import { EFormat } from '@/common/enums';
 
-const UsersFilter = () => {
+const UsersFilter = ({ params, onFilter }) => {
   const [form] = Form.useForm();
   const [visibleAdvancedFilter, setVisibleAdvancedFilter] = useState(false);
+  const { q, plan, status, created_at_min, created_at_max } = params;
+
+  const planValue = plansOptions.find((option) => option.value === plan);
+  const statusValue = statusOptions.find((option) => option.value === status);
+  const createdAtMinValue = created_at_min ? moment(created_at_min, EFormat.DATE_TIME) : undefined;
+  const createdAtMaxValue = created_at_min ? moment(created_at_max, EFormat.DATE_TIME) : undefined;
+
+  const handleChangeFilter = (key, value) => {
+    onFilter?.({
+      ...params,
+      [key]: value,
+    });
+  };
 
   return (
     <div className="UsersFilter">
@@ -20,12 +37,30 @@ const UsersFilter = () => {
             <Row gutter={[24, 24]}>
               <Col>
                 <Form.Item label="User name">
-                  <Input placeholder="User name or User email" />
+                  <Input
+                    value={q}
+                    placeholder="User name or User email"
+                    onSearch={(value) => handleChangeFilter('q', value)}
+                  />
                 </Form.Item>
               </Col>
               <Col>
                 <Form.Item label="Created Date">
-                  <Input placeholder="Last 7 days" />
+                  <DatePicker
+                    value={[createdAtMinValue, createdAtMaxValue]}
+                    picker="range"
+                    allowClear
+                    placeholder={['Start Date', 'End Date']}
+                    onChange={(value) => {
+                      const [start, end] = value || [];
+
+                      onFilter?.({
+                        ...params,
+                        created_at_min: start ? moment(start).format(EFormat.DATE_TIME) : undefined,
+                        created_at_max: end ? moment(end).format(EFormat.DATE_TIME) : undefined,
+                      });
+                    }}
+                  />
                 </Form.Item>
               </Col>
             </Row>
@@ -36,12 +71,24 @@ const UsersFilter = () => {
                 <>
                   <Col>
                     <Form.Item label="User status">
-                      <Select placeholder="User status" options={[]} />
+                      <Select
+                        value={statusValue}
+                        placeholder="User status"
+                        allowClear
+                        options={statusOptions}
+                        onChange={(option) => handleChangeFilter('status', option?.value)}
+                      />
                     </Form.Item>
                   </Col>
                   <Col>
                     <Form.Item label="Plan">
-                      <Select placeholder="Plan" options={[]} />
+                      <Select
+                        value={planValue}
+                        placeholder="Plan"
+                        allowClear
+                        options={plansOptions}
+                        onChange={(option) => handleChangeFilter('plan', option?.value)}
+                      />
                     </Form.Item>
                   </Col>
                 </>

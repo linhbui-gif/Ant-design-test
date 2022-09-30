@@ -4,14 +4,14 @@ import classNames from 'classnames';
 
 import './Pagination.scss';
 
-const Pagination = ({ page, pageSize, total = 0, showTotal, className, onChange }) => {
+const Pagination = ({ page, pageSize, total = 0, hideOnSinglePage, showTotal, className, onChange }) => {
   return (
     <div className={classNames('Pagination', className)}>
       <AntdPagination
         current={page}
         pageSize={pageSize}
         total={total}
-        hideOnSinglePage
+        hideOnSinglePage={hideOnSinglePage}
         onChange={onChange}
         showTotal={showTotal}
       />

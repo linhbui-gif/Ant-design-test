@@ -5,6 +5,15 @@
   padding: 3.2rem 2.4rem;
   margin-bottom: 1rem;
 
+  &-header {
+    margin-bottom: 5rem;
+
+    &-title {
+      font-size: 1.4rem;
+      color: rgba($black, 0.85);
+    }
+  }
+
   &-status-list {
     &-item {
       &.cancel {
@@ -23,7 +32,7 @@
         .UsersTable-status-list-item {
           &-circle {
             background: $lima;
-          }          
+          }
         }
       }
 
@@ -44,6 +53,6 @@
   }
 
   &-pagination {
-    margin-top: 3.2rem;
+    margin-top: 2.4rem;
   }
 }
