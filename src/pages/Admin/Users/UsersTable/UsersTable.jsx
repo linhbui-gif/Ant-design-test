@@ -66,14 +66,14 @@ const UsersTable = ({ params, onReload, onPageChange, onTableChange }) => {
       dataIndex: 'apps_count',
       title: 'Apps',
       sorter: true,
-      render: (value) => <span style={{ color: EIconColor.DODGER_BLUE }}>{value}</span>,
+      render: (value) => <span style={{ color: EIconColor.LIMEADE }}>{value}</span>,
     },
     {
       key: 'keywords_count',
       dataIndex: 'keywords_count',
       title: 'Keywords',
       sorter: true,
-      render: (value) => <span style={{ color: EIconColor.DODGER_BLUE }}>{value}</span>,
+      render: (value) => <span style={{ color: EIconColor.LIMEADE }}>{value}</span>,
     },
     {
       key: 'plan',

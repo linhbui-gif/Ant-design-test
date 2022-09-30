@@ -132,6 +132,12 @@ export const validationRules = {
       return Promise.reject(message || 'Invalid URL');
     },
   }),
+  confirmPassword: (confirmPasswordValue, message) => ({
+    validator: (rule, value) => {
+      if (!value || value === confirmPasswordValue) return Promise.resolve();
+      return Promise.reject(message || 'Confirm Password is not matched with Password');
+    },
+  }),
 };
 
 export const copyText = (text) => {

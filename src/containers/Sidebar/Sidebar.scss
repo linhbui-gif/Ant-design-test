@@ -14,4 +14,14 @@
     cursor: pointer;
     box-shadow: inset 0px 1px 0px $gallery;
   }
+
+  .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-expand-icon,
+  .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-arrow,
+  .ant-menu-light .ant-menu-item:hover,
+  .ant-menu-light .ant-menu-item-active,
+  .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+  .ant-menu-light .ant-menu-submenu-active,
+  .ant-menu-light .ant-menu-submenu-title:hover {
+    color: $limeade;
+  }
 }

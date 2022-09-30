@@ -22,6 +22,7 @@ const retryLoadComponent = (fn, retriesLeft = 5, interval = 1000) =>
 
 const Users = lazy(() => retryLoadComponent(() => import('@/pages/Admin/Users')));
 const Login = lazy(() => retryLoadComponent(() => import('@/pages/Auth/Login')));
+const LoginApp = lazy(() => retryLoadComponent(() => import('@/pages/Auth/LoginApp')));
 const Register = lazy(() => retryLoadComponent(() => import('@/pages/Auth/Register')));
 const ResetPassword = lazy(() => retryLoadComponent(() => import('@/pages/Auth/ResetPassword')));
 const CheckYourEmail = lazy(() => retryLoadComponent(() => import('@/pages/Auth/CheckYourEmail')));
@@ -42,6 +43,7 @@ export const Paths = {
   Users: '/users',
 
   Login: '/login',
+  LoginApp: '/login-app',
   Register: '/register',
   ResetPassword: '/reset-password',
   CheckYourEmail: '/check-your-email',
@@ -54,6 +56,7 @@ export const Pages = {
   Users,
 
   Login,
+  LoginApp,
   Register,
   ResetPassword,
   CheckYourEmail,

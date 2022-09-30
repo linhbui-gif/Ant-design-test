@@ -5,7 +5,6 @@ import { EResponseCode } from '@/common/enums';
 import { LayoutPaths } from '@/pages/routers';
 
 import AuthHelpers from './auth-helpers';
-import AuthInstance from './api/auth';
 
 let isRefreshingAccessToken = false;
 let tokenSubscribers = [];
@@ -23,10 +22,10 @@ const AuthorizedInstance = (baseURL) => {
       navigate(LayoutPaths.Auth);
     }
 
-    const { accessToken, refreshToken } = await AuthInstance.refreshToken();
+    // const { accessToken, refreshToken } = await AuthInstance.refreshToken();
 
-    AuthHelpers.storeAccessToken(accessToken);
-    AuthHelpers.storeRefreshToken(refreshToken);
+    // AuthHelpers.storeAccessToken(accessToken);
+    // AuthHelpers.storeRefreshToken(refreshToken);
 
     return AuthHelpers.getAccessToken();
   };

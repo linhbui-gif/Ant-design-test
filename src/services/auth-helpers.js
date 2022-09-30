@@ -4,6 +4,8 @@ import env from '@/env';
 const COOKIE_DOMAIN = env.cookie.domain;
 const COOKIE_ACCESS_TOKEN = `atk`;
 const COOKIE_REFRESH_TOKEN = `rtk`;
+const COOKIE_REMEMBER_USERNAME = `run`;
+const COOKIE_REMEMBER_PASSWORD = `rpw`;
 // const MAXIMUM_EXPIRES_TIME = 2147483647;
 
 const cookieSetting = {
@@ -35,6 +37,22 @@ class AuthHelpers {
 
   storeAccessToken(accessToken) {
     setCookie(COOKIE_ACCESS_TOKEN, accessToken);
+  }
+
+  getRememberUserName() {
+    return getCookie(COOKIE_REMEMBER_USERNAME);
+  }
+
+  storeRememberUserName(value) {
+    setCookie(COOKIE_REMEMBER_USERNAME, value);
+  }
+
+  getRememberPassword() {
+    return getCookie(COOKIE_REMEMBER_PASSWORD);
+  }
+
+  storeRememberPassword(value) {
+    setCookie(COOKIE_REMEMBER_PASSWORD, value);
   }
 
   clearTokens() {

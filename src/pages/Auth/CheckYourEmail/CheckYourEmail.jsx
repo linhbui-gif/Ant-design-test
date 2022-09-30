@@ -22,7 +22,7 @@ const CheckYourEmail = () => {
           </div>
         </Form>
         <div className="CheckYourEmail-description">
-          <Link to={`${LayoutPaths.Auth}${Paths.Login}`}>
+          <Link to={`${LayoutPaths.Auth}${Paths.LoginApp}`}>
             <u>Skip, I'll confirm later</u>
           </Link>
         </div>

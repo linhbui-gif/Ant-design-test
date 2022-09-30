@@ -7,6 +7,7 @@ import './Icon.scss';
 import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';
 import Google from './Google';
+import Global from './Global';
 
 const Icon = ({ name, className, color, onClick }) => {
   const renderIcon = () => {
@@ -17,6 +18,8 @@ const Icon = ({ name, className, color, onClick }) => {
         return <ArrowRight color={color} />;
       case EIconName.Google:
         return <Google color={color} />;
+      case EIconName.Global:
+        return <Global color={color} />;
       default:
         return <></>;
     }

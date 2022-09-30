@@ -1,97 +1,61 @@
 @import '@/assets/styles/_global.scss';
 
 .Login {
-  text-align: center;
+  background: $link-water;
+  padding: 0 1.6rem;
+  min-height: 100vh;
+  background: url('../../../assets/images/bg-login.png');
+  background-size: cover;
+  background-position: center;
+
+  &-header {
+    padding: .8rem 1.2rem;
+
+    &-language {
+      width: 3.2rem;
+      height: 3.2rem;
+
+      .Icon {
+        width: 1.4rem;
+        height: 1.4rem;
+      }
+    }
+  }
 
   &-logo {
     max-width: 20.5rem;
-    margin: 0 auto 1rem;
+    margin: 0 auto 1.6rem;
 
     img {
       width: 100%;
     }
   }
 
-  &-remember {
-    .ant-form-item {
-      margin-bottom: 0;
-    }
-  }
-
-  &-description {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-
-    span {
-      color: $dodger-blue;
-    }
-  }
-
-  &-submit {
-    margin: 2.2rem 0 3.2rem;
-  }
-
-  &-third-party {
-    position: relative;
-    margin: 3.2rem 0;
-
-    &::before {
-      position: absolute;
-      height: 1px;
-      width: 100%;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      background: $alto;
-      content: '';
-    }
+  &-title {
+    font-size: 1.4rem;
+    color: $limeade;
+    padding: 1.2rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba($black, 0.03);
+    margin-bottom: 2.2rem;
 
     span {
       position: relative;
-      z-index: 1;
-      font-size: 1.4rem;
-      color: $alto;
-      background: $white;
-      padding: .8rem;
+      padding: .4rem 0;
+      display: block;
+      border-bottom: 2px solid $limeade;
     }
   }
 
-  &-term {
-    color: rgba($black, 0.6);
-
-    a {
-      text-decoration: underline;
-      color: rgba($black, 0.6);
-    }
+  &-wrapper {
+    max-width: 36rem;
+    width: 100%;
+    margin: 4rem auto 0;
   }
 
-  &-socials {
-    margin-bottom: 2.4rem;
-
-    &-btn {
-      transition: $common-transition;
-      border: 1px solid $alto;
-      border-radius: .8rem;
-      background: $white;
-      cursor: pointer;
-      padding: 1.2rem 2.4rem;
-
-      &:hover {
-        opacity: 0.7;
-      }
-
-      .Icon {
-        flex: 0 0 1.6rem;
-        max-width: 1.6rem;
-        height: 1.6rem;
-        margin-right: 1.6rem;
-      }
-
-      span {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: $emperor;
-      }
+  &-form {
+    .ant-input-affix-wrapper>input.ant-input {
+      text-align: center;
     }
   }
 }

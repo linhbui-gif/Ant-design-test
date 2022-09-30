@@ -35,7 +35,7 @@ const ResetPassword = () => {
           <i>
             You remember your password?{' '}
             <span>
-              <Link to={`${LayoutPaths.Auth}${Paths.Login}`}>Sign in</Link>
+              <Link to={`${LayoutPaths.Auth}${Paths.LoginApp}`}>Sign in</Link>
             </span>
           </i>
         </div>
