@@ -33,7 +33,7 @@ const errorReducer = (state = {}, action) => {
       axiosErrorData?.error ||
       axiosErrorData?.message ||
       axiosErrorData?.error_description ||
-      axiosErrorData?.errors?.[0].message ||
+      axiosErrorData?.errors?.message ||
       error?.message;
 
     if (error) {
