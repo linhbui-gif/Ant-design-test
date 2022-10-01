@@ -27,6 +27,7 @@ const Register = lazy(() => retryLoadComponent(() => import('@/pages/Auth/Regist
 const ResetPassword = lazy(() => retryLoadComponent(() => import('@/pages/Auth/ResetPassword')));
 const CheckYourEmail = lazy(() => retryLoadComponent(() => import('@/pages/Auth/CheckYourEmail')));
 const ChangePassword = lazy(() => retryLoadComponent(() => import('@/pages/Auth/ChangePassword')));
+const GoogleCallback = lazy(() => retryLoadComponent(() => import('@/pages/Auth/GoogleCallback')));
 
 export const LayoutPaths = {
   Auth: '/auth',
@@ -48,6 +49,7 @@ export const Paths = {
   ResetPassword: '/reset-password',
   CheckYourEmail: '/check-your-email',
   ChangePassword: '/change-password',
+  GoogleCallback: '/google_login_callback',
 
   Rest: '*',
 };
@@ -61,6 +63,7 @@ export const Pages = {
   ResetPassword,
   CheckYourEmail,
   ChangePassword,
+  GoogleCallback,
 };
 
 export const AuthRoute = ({ component: Component, ...rest }) => {

@@ -38,7 +38,7 @@ const Register = () => {
 
   const handleRegisterAppSuccess = (response) => {
     if (response.token) {
-      navigate(Paths.LoginApp);
+      navigate(`${LayoutPaths.Auth}${Paths.LoginApp}`);
       showNotification(ETypeNotification.SUCCESS, 'Register Successfully');
     }
   };
@@ -63,10 +63,13 @@ const Register = () => {
           onValuesChange={(_, values) => setFormValues(values)}
         >
           <Form.Item name="username" rules={[validationRules.required()]}>
-            <Input prefix={<UserOutlined />} placeholder="Appname" size="large" />
+            <Input prefix={<UserOutlined />} placeholder="Username" size="large" />
           </Form.Item>
           <Form.Item name="fullname" rules={[validationRules.required()]}>
-            <Input prefix={<UserOutlined />} placeholder="Full Name " size="large" />
+            <Input prefix={<UserOutlined />} placeholder="Full Name" size="large" />
+          </Form.Item>
+          <Form.Item name="email" rules={[validationRules.required(), validationRules.email()]}>
+            <Input prefix={<MailOutlined />} placeholder="Email" size="large" />
           </Form.Item>
           <Form.Item name="password" rules={[validationRules.required()]}>
             <Input

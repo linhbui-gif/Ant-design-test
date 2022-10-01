@@ -156,3 +156,8 @@ export const renderSortByString = (field, direction) => {
   if (direction === 'descend') newDirection = '0';
   return `${field}:${newDirection}`;
 };
+
+export const getQueryParam = (param) => {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(param);
+};

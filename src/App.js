@@ -23,10 +23,12 @@ const App = () => {
             <PublicRoute path={Paths.Register} component={Pages.Register} />
             <PublicRoute path={Paths.ResetPassword} component={Pages.ResetPassword} />
             <PublicRoute path={Paths.CheckYourEmail} component={Pages.CheckYourEmail} />
-            <PublicRoute path={Paths.ChangePassword} component={Pages.ChangePassword} />
 
             <Redirect noThrow from={Paths.Rest} to={`${LayoutPaths.Auth}${Paths.Login}`} />
           </Auth>
+
+          <PublicRoute path={Paths.ChangePassword} component={Pages.ChangePassword} />
+          <PublicRoute path={Paths.GoogleCallback} component={Pages.GoogleCallback} />
 
           <Redirect noThrow from={Paths.Rest} to={`${LayoutPaths.Admin}${Paths.Users}`} />
         </Router>

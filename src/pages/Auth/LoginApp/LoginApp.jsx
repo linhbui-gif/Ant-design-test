@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AuthForm from '@/containers/AuthForm';
 import LogoPrimary from '@/assets/images/logo-primary.svg';
@@ -9,14 +10,13 @@ import Checkbox from '@/components/Checkbox';
 import { Link } from '@reach/router';
 import { LayoutPaths, Paths } from '@/pages/routers';
 import Button from '@/components/Button';
-import Icon, { EIconName } from '@/components/Icon';
-
-import './LoginApp.scss';
-import { useDispatch, useSelector } from 'react-redux';
 import { ELoginAppAction, loginAppAction } from '@/redux/actions';
 import { showNotification, validationRules } from '@/utils/functions';
 import { ETypeNotification } from '@/common/enums';
 import GoogleBtn from '@/components/GoogleBtn';
+import env from '@/env';
+
+import './LoginApp.scss';
 
 const LoginApp = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const LoginApp = () => {
 
   const handleLoginAppSuccess = (response) => {
     if (response.token) {
-      window.open('https://letsmetrix.com', '_self');
+      window.open(env.rootAppUrl, '_self');
     } else {
       showNotification(ETypeNotification.ERROR, response.message);
     }
